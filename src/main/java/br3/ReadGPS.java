@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -25,7 +26,8 @@ public class ReadGPS {
 
     public static void main(String[] args) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        format.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
+        int offset  = ZonedDateTime.now().getOffset().getTotalSeconds();
+
         String dirName = "gps"; // current directory
         // your latitude / longitude for security zone
         double latSecu = 0.0;
@@ -77,7 +79,7 @@ public class ReadGPS {
 
                         buffer.append("\n<trkpt lat=\"" + lat + "\" lon=\"" + lon + "\">\n");
 
-                        long timeInSecs = coord.get("T").asLong();
+                        long timeInSecs = coord.get("T").asLong() - offset;
                         Date d = new Date(timeInSecs * 1000);
                         if (i == 0) {
                             startTime = timeInSecs;
