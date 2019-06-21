@@ -1,4 +1,4 @@
-# Makibes
+# Makibes BR3 / Dr Viva P1C
 
 Java program to merge Makibes BR gps and hr data into gpx file suitable for upload to Strava etc.
 
