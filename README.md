@@ -10,3 +10,5 @@ How to use
 5. run ReadGPS: 
 $ java -jar BR3-1.0.0.jar
 gps\155716514295184362_gps_1560853763_Makibes-BR3-2851.txt
+
+Note, this is a Java application, you'll need Java installed on your computer. It would be great to convert this to an Android application to do all this automatically.
